@@ -39,6 +39,12 @@ var Snake = (function () {
     highScoreEl = document.getElementById('high-score-val');
     overlayEl = document.getElementById('start-overlay');
 
+    // Load High Score
+    const savedBest = localStorage.getItem('neon-snake-best');
+    if (savedBest) {
+        pointsMax = parseInt(savedBest);
+    }
+
     // Make it responsive
     resize();
     window.addEventListener('resize', resize);
@@ -203,7 +209,10 @@ var Snake = (function () {
       if (player.x == fruit.x && player.y == fruit.y) {
         if(!fixedTail) tail++;
         points++;
-        if(points > pointsMax) pointsMax = points;
+        if(points > pointsMax) {
+            pointsMax = points;
+            localStorage.setItem('neon-snake-best', pointsMax);
+        }
         reward = 1;
         game.RandomFruit();
         updateUI();
