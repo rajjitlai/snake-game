@@ -1,26 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Snake Game</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Snake | A Premium Arcade Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="A high-performance, neon-themed Snake game built with modern web technologies. Experience the classic arcade game with a stunning modern design.">
+    <meta name="keywords" content="Snake Game, Web Game, JavaScript, Canvas, Neon Design, Arcade">
 </head>
 <body>
-	<div id="game-container">
-		<canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
-	</div>
-	<div class="keys">
-	  <a class="up arr" onclick="Snake.action('up')">
-	    <i class="chevron up"></i></a>
-	  <br />
-	  <a class="left arr" onclick="Snake.action('left')">
-	    <i class="chevron left"></i></a>
-	  <a class="down arr" onclick="Snake.action('down')">
-	    <i class="chevron down"></i></a>
-	  <a class="right arr" onclick="Snake.action('right')">
-	    <i class="chevron right"></i></a>
-	</div>
-	<script type="text/javascript" src="game.js"></script>
+    <div class="background-blob"></div>
+    <div class="background-blob second"></div>
+    
+    <main id="app-container">
+        <header class="game-header">
+            <h1 id="main-title">NEON<span>SNAKE</span></h1>
+            <div class="hud">
+                <div class="score-card">
+                    <span class="label">SCORE</span>
+                    <span id="score-val" class="value">00</span>
+                </div>
+                <div class="score-card high-score">
+                    <span class="label">BEST</span>
+                    <span id="high-score-val" class="value">00</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="game-wrapper">
+            <div class="glass-canvas-container">
+                <canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
+                <div id="start-overlay" class="overlay">
+                    <p>PRESS ANY ARROW KEY TO START</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="game-controls">
+            <div class="control-pad">
+                <button id="btn-up" class="ctrl-btn up" onclick="Snake.action('up')" aria-label="Up">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>
+                </button>
+                <div class="row">
+                    <button id="btn-left" class="ctrl-btn left" onclick="Snake.action('left')" aria-label="Left">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button id="btn-down" class="ctrl-btn down" onclick="Snake.action('down')" aria-label="Down">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <button id="btn-right" class="ctrl-btn right" onclick="Snake.action('right')" aria-label="Right">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="keyboard-hints">
+                <span>(ESC) RESET</span>
+                <span>(SPACE) PAUSE</span>
+            </div>
+        </footer>
+    </main>
+
+    <script type="text/javascript" src="js/game.js"></script>
 </body>
 </html>
